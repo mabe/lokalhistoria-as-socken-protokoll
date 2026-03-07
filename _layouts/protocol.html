@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<article class="protocol-page">
+  <header class="protocol-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.year %}
+    <p class="protocol-meta">
+      <strong>År:</strong> {{ page.year }}
+      {% if page.to_year and page.to_year != page.year %}&ndash;{{ page.to_year }}{% endif %}
+    </p>
+    {% endif %}
+    {% if page.source %}
+    <p class="protocol-meta"><strong>Källa:</strong> {{ page.source }}</p>
+    {% endif %}
+    {% if page.record_type %}
+    <p class="protocol-meta"><strong>Typ:</strong> {{ page.record_type }}</p>
+    {% endif %}
+  </header>
+
+  <section class="protocol-description">
+    {% if page.description %}
+    <p>{{ page.description }}</p>
+    {% endif %}
+    {{ content }}
+  </section>
+
+  {% if page.thumbnail_url %}
+  <figure class="protocol-thumbnail">
+    <img src="{{ page.thumbnail_url }}" alt="{{ page.title }}" loading="lazy">
+  </figure>
+  {% endif %}
+
+  <footer class="protocol-footer">
+    {% if page.source_url %}
+    <p>
+      <a href="{{ page.source_url }}" target="_blank" rel="noopener noreferrer">
+        Visa originalpost på Lokalhistoria.nu &rarr;
+      </a>
+    </p>
+    {% endif %}
+    <p><a href="{{ '/' | relative_url }}">&larr; Tillbaka till förteckning</a></p>
+  </footer>
+</article>

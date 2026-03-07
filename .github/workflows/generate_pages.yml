@@ -1,0 +1,49 @@
+name: Generate Protocol Pages
+
+on:
+  schedule:
+    # Run every Sunday at 03:00 UTC
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+    inputs:
+      force_regenerate:
+        description: "Force full regeneration of all pages"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch protocols and generate pages
+        run: python3 scripts/generate_pages.py
+        env:
+          FORCE_REGENERATE: ${{ github.event.inputs.force_regenerate || 'false' }}
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet && git diff --cached --quiet \
+            && echo "changed=false" >> "$GITHUB_OUTPUT" \
+            || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push changes
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _protokoll/ index.md
+          git commit -m "chore: regenerate protocol pages [skip ci]"
+          git push

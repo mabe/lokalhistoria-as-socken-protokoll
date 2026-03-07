@@ -1,0 +1,38 @@
+title: "Ås Socken Protokoll"
+description: "Protokoll från Ås Socken – hämtade från Lokalhistoria.nu"
+baseurl: "/lokalhistoria-as-socken-protokoll"
+url: "https://mabe.github.io"
+lang: "sv"
+
+theme: minima
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+collections:
+  protokoll:
+    output: true
+    permalink: /protokoll/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "protokoll"
+    values:
+      layout: "protocol"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - scripts/
+  - "*.py"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
