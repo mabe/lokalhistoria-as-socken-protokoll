@@ -1,5 +1,7 @@
 # Ås Socken Protokoll – GitHub Pages
 
+**Webbplats:** https://mabe.github.io/lokalhistoria-as-socken-protokoll
+
 En Jekyll-baserad GitHub Pages-webbplats som listar och presenterar **protokoll från Ås Socken**, hämtade från [Lokalhistoria.nu](http://www.lokalhistoria.nu/) via SLHD:s API.
 
 ## Vad är det här?
