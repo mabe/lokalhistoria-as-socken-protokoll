@@ -1,0 +1,1 @@
+# lokalhistoria-as-socken-protokoll
