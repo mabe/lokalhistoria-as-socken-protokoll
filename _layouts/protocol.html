@@ -25,6 +25,13 @@ layout: default
     {{ content }}
   </section>
 
+  {% if page.page_id %}
+  <section class="protocol-xml"
+           id="protocol-xml-content"
+           data-page-id="{{ page.page_id | escape }}">
+  </section>
+  {% endif %}
+
   {% if page.thumbnail_url %}
   <figure class="protocol-thumbnail">
     <img src="{{ page.thumbnail_url }}" alt="{{ page.title }}" loading="lazy">
@@ -42,3 +49,7 @@ layout: default
     <p><a href="{{ '/' | relative_url }}">&larr; Tillbaka till förteckning</a></p>
   </footer>
 </article>
+
+{% if page.page_id %}
+<script src="{{ '/assets/js/protocol.js' | relative_url }}"></script>
+{% endif %}
