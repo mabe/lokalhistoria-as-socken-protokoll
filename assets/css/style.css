@@ -186,3 +186,57 @@ a:hover {
     font-size: 1.3rem;
   }
 }
+
+/* Protocol XML content */
+.protocol-xml {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid #8b5e3c;
+  background: #fdf8f4;
+}
+
+.xml-loading,
+.xml-error {
+  font-style: italic;
+  color: #777;
+}
+
+.xml-error {
+  color: #a03030;
+}
+
+.xml-header,
+.xml-publication,
+.xml-source {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.xml-body {
+  line-height: 1.75;
+}
+
+.xml-p {
+  margin: 0.6rem 0;
+}
+
+.xml-head {
+  font-size: 1.1rem;
+  margin: 1.2rem 0 0.4rem;
+  color: #3c2a1e;
+}
+
+.xml-div {
+  margin: 0.75rem 0;
+}
+
+.xml-page-break {
+  border: none;
+  border-top: 1px dashed #bbb;
+  margin: 1rem 0;
+}
+
+.xml-node {
+  display: inline;
+}
