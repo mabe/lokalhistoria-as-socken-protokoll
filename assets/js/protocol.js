@@ -10,7 +10,7 @@
   /* NOTE: The API endpoint uses HTTP as specified by the project requirements.
    * If the site is served over HTTPS, browsers may block this mixed-content
    * request. Switch to HTTPS if the API server adds TLS support. */
-  var API_BASE = 'http://slhd.evryonehalmstad.se/Widget/GetXml?documentid=';
+  var API_BASE = 'https://slhd.evryonehalmstad.se/Widget/GetXml?documentid=';
 
   container.innerHTML = '<p class="xml-loading">Laddar protokolltext\u2026</p>';
 
